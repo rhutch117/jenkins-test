@@ -22,7 +22,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    curl -s -H "Content-Type: application/json" -X POST -d '{}' $CAMUNDA_URL/authorization
+                    curl -s $CAMUNDA_URL/authorization
                 '''
             }
         }
