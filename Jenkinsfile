@@ -22,7 +22,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    curl -s -u demo:demo $CAMUNDA_URL/authorization
+                    curl -s --user demo:demo $CAMUNDA_URL/authorization
                 '''
             }
         }
