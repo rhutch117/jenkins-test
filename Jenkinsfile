@@ -14,22 +14,15 @@ pipeline {
     }
 
     stages {
-        stage('Test Jenkins build') {
-            steps {
-                script {
-                    echo "Building ${params.environment}"
-                    echo "Using ${camunda_url[params.environment]}"
-                }
-            }
-        }
-
-        stage('Build & Publish') {
+        stage('Publish') {
             environment {
                 CAMUNDA_URL = "${camunda_url[params.environment]}"
+                CAMUNDA_USER = "demo"
+                CAMUNDA_PW = "demo"
             }
             steps {
                 sh '''
-                    curl -s $CAMUNDA_URL
+                    curl -s -u $CAMUNDA_USER:$CAMUNDA_PW $CAMUNDA_URL
                 '''
             }
         }
