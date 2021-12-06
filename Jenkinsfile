@@ -22,9 +22,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    curl --location --request POST $CAMUNDA_URL/deployment/create \
-                         --header 'Authorization: Basic ZGVtbzpkZW1v' \
-                         --form 'deployment-name="get-customer-configuration"'
+                    curl -u $CAMUNDA_USER:$CAMUNDA_PW -H "Content-Type: application/json" -X POST -d '{"variables": {"amount": {"value":555,"type":"long"}, "item": {"value":"item-xyz"} } }' http://localhost:8080/engine-rest/process-definition/key/payment-retrieval/start
                 '''
             }
         }
