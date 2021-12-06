@@ -4,11 +4,6 @@ def camunda_url = [
 
 pipeline {
     agent { label 'build' }
-    options {
-        timestamps()
-        ansiColor('xterm')
-        buildDiscarder(logRotator(numToKeepStr: '50', artifactNumToKeepStr:'50'))
-    }
 
     parameters {
         // Creates a Dropdown for Environment Selection
