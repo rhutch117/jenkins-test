@@ -3,7 +3,7 @@ def camunda_url = [
 ]
 
 pipeline {
-    agent { label 'build' }
+    agent any
 
     parameters {
         // Creates a Dropdown for Environment Selection
