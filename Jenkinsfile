@@ -1,6 +1,3 @@
-@Library('Jenkins-Shared-Library')_
-
-// Bucket where the state file lives
 def camunda_url = [
     'Development': 'localhost:8080',
 ]
