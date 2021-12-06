@@ -22,7 +22,10 @@ pipeline {
             }
             steps {
                 sh '''
-                    curl -s -u $CAMUNDA_USER:$CAMUNDA_PW $CAMUNDA_URL
+                    curl --location --request POST $CAMUNDA_URL/deployment/create \
+                         --header 'Authorization: Basic ZGVtbzpkZW1v' \
+                         --form 'upload=@"/Users/myuser/Desktop/diagram_1.bpmn"' \
+                         --form 'deployment-name="get-customer-configuration"'
                 '''
             }
         }
