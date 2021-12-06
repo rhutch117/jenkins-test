@@ -1,5 +1,5 @@
 def camunda_url = [
-    'Development': 'localhost:8080',
+    'Development': 'localhost:8080/engine-rest',
 ]
 
 pipeline {
