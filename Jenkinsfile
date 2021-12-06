@@ -22,7 +22,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    curl -s --user demo:demo http://localhost:8080/camunda/enginer-rest/default
+                    curl -s --user demo:demo http://localhost:8080/camunda/engine-rest/default
                 '''
             }
         }
