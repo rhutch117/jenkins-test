@@ -27,8 +27,7 @@ pipeline {
             steps {
                 script {
                     def calendar_url = "https://calendarific.com/api/v2/holidays?&api_key=758f54db8c52c2b500c928282fe83af1b1aa2be8&country=IN&year=2020"
-                    def curl_output = sh returnStdout: true, script: "curl -s ${calendar_url}"
-                    echo "${curl_output}"
+                    curl -s "${calendar_url}"
                 }
             }
             
