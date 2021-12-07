@@ -22,8 +22,10 @@ pipeline {
             }
             steps {
                 sh '''
-                    ENCODED_CREDS=$(echo $CAMUNDA_USER:$CAMUNDA_PW | tr -d \\012 | base64)
-                    curl -s -H "Authorization: Basic $ENCODED_CREDS" http://localhost:8080/camunda/engine-rest/process-instance
+                curl --location --request POST 'localhost:8080/engine-rest/deployment/create' \
+                     --header 'Content-Type: multipart/form-data' \
+                     --header 'Authorization: Basic ZGVtbzpkZW1v' \
+                     --form 'upload=@"/Users/ryanhutchison/Downloads/invoice.v2.bpmn"'
                 '''
             }
         }
@@ -35,3 +37,10 @@ pipeline {
         }
     }
 }
+
+
+
+curl --location --request POST 'localhost:8080/engine-rest/deployment/create' \
+--header 'Content-Type: multipart/form-data' \
+--header 'Authorization: Basic ZGVtbzpkZW1v' \
+--form 'upload=@"/Users/ryanhutchison/Downloads/invoice.v2.bpmn"'
