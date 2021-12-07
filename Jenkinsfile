@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sh '''
                     ENCODED_CREDS=$(echo $CAMUNDA_USER:$CAMUNDA_PW | tr -d \\012 | base64)
-                    curl -s -H "Authorization: Basic $ENCODED_CREDS http://localhost:8080/camunda/engine-rest/process-instance
+                    curl -s -H "Authorization: Basic $ENCODED_CREDS" http://localhost:8080/camunda/engine-rest/process-instance
                 '''
             }
         }
