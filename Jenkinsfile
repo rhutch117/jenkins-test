@@ -14,6 +14,13 @@ pipeline {
     }
 
     stages {
+        stage('Get pwd') {
+            steps {
+                sh '''
+                    ls -lah
+                '''
+            }
+        }
         stage('Publish') {
             environment {
                 CAMUNDA_URL = "${camunda_url[params.environment]}"
