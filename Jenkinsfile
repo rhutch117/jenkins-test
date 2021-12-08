@@ -21,21 +21,21 @@ pipeline {
                 '''
             }
         }
-        stage('Publish') {
-            environment {
-                CAMUNDA_URL = "${camunda_url[params.environment]}"
-                CAMUNDA_USER = "demo"
-                CAMUNDA_PW = "demo"
-            }
-            steps {
-                sh '''
-                curl --location --request POST 'localhost:8080/engine-rest/deployment/create' \
-                     --header 'Content-Type: multipart/form-data' \
-                     --header 'Authorization: Basic ZGVtbzpkZW1v' \
-                     --form 'upload=@"/Users/ryanhutchison/Downloads/invoice.v2.bpmn"'
-                '''
-            }
-        }
+        // stage('Publish') {
+        //     environment {
+        //         CAMUNDA_URL = "${camunda_url[params.environment]}"
+        //         CAMUNDA_USER = "demo"
+        //         CAMUNDA_PW = "demo"
+        //     }
+        //     steps {
+        //         sh '''
+        //         curl --location --request POST 'localhost:8080/engine-rest/deployment/create' \
+        //              --header 'Content-Type: multipart/form-data' \
+        //              --header 'Authorization: Basic ZGVtbzpkZW1v' \
+        //              --form 'upload=@"/Users/ryanhutchison/Downloads/invoice.v2.bpmn"'
+        //         '''
+        //     }
+        // }
     }
 
     post {
