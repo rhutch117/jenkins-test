@@ -27,14 +27,14 @@ pipeline {
                 CAMUNDA_USER = "demo"
                 CAMUNDA_PW = "demo"
             }
-            steps {
-                sh '''
-                curl --location --request POST 'localhost:8080/engine-rest/deployment/create' \
-                     --header 'Content-Type: multipart/form-data' \
-                     --header 'Authorization: Basic ZGVtbzpkZW1v' \
-                     --form 'upload=@"/Users/ryanhutchison/Downloads/invoice.v2.bpmn"'
-                '''
-            }
+            // steps {
+            //     sh '''
+            //     curl --location --request POST 'localhost:8080/engine-rest/deployment/create' \
+            //          --header 'Content-Type: multipart/form-data' \
+            //          --header 'Authorization: Basic ZGVtbzpkZW1v' \
+            //          --form 'upload=@"/Users/ryanhutchison/Downloads/invoice.v2.bpmn"'
+            //     '''
+            // }
         }
     }
 
